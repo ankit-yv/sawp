@@ -4,7 +4,6 @@ use select::document::Document;
 use select::predicate::Name;
 use select::predicate::Predicate;
 use std::collections::HashSet;
-use std::fmt::format;
 use std::io::Error as IoErr;
 use std::io::Read;
 use std::path::Path;
