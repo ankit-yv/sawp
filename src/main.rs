@@ -4,18 +4,22 @@ use select::document::Document;
 use select::predicate::Name;
 use select::predicate::Predicate;
 use std::collections::HashSet;
+use std::fmt::format;
 use std::io::Error as IoErr;
 use std::io::Read;
 use std::path::Path;
 use std::time::Instant;
 
-const BASE_URL : &str = "https://rolisz.ro";
+const BASE_URL : &str = "https://en.wikipedia.org";
+const SRC_PATH : &str = "wiki/Rust";
 
 fn main() -> Result<()> {
+
     let now = Instant::now();
 
+    let src_url = format!("{}/{}", BASE_URL, SRC_PATH);
     let client = reqwest::blocking::Client::new();
-    let origin_url = BASE_URL;
+    let origin_url = src_url.as_str();
 
     let body = fetch_url(&client, origin_url)?;
 
